@@ -38,6 +38,7 @@ import org.runnerup.workout.feedback.AudioCountdownFeedback;
 import org.runnerup.workout.feedback.AudioFeedback;
 import org.runnerup.workout.feedback.CoachFeedback;
 import org.runnerup.workout.feedback.CountdownFeedback;
+import org.runnerup.workout.feedback.EncouragementFeedback;
 import org.runnerup.workout.feedback.HRMStateChangeFeedback;
 
 public class WorkoutBuilder {
@@ -383,6 +384,8 @@ public class WorkoutBuilder {
         tr.scope = Scope.STEP;
         tr.range = range;
         tr.triggerAction.add(new CoachFeedback(tr));
+        tr.triggerAction.add(
+            new EncouragementFeedback(EncouragementFeedback.CueType.PACE_DROP));
         step.triggers.add(tr);
       }
 

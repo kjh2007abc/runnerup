@@ -82,6 +82,15 @@ jobs:
           path: |
             **/build/outputs/logs/
 
+      - name: Build debug APK
+        run: ./gradlew :app:assembleLatestDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v7
+        with:
+          name: runnerup-debug-apk
+          path: app/build/outputs/apk/latest/debug/*.apk
+
       - name: Test
         run: ./gradlew test
 
